@@ -57,9 +57,19 @@ public class Prodotto
 
     public string GetPadLeftCodice()
     {
-        char pad = '0';
-         
-        return codice.ToString().PadLeft(8, pad);
-    }
+        //char pad = '0';
 
+        //return codice.ToString().PadLeft(8, pad);
+
+        //funzione alternativa fatta a mano
+
+        string codicePadLeft = codice.ToString();
+
+        for (int i = 0; codicePadLeft.Length < 8; i++)
+        {
+            codicePadLeft = "0" + codicePadLeft;
+        }
+
+        return codicePadLeft;
+    }
 }
