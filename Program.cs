@@ -40,7 +40,7 @@ public class Prodotto
         return this.prezzo;
     }
 
-    public void SetPrice(float prezzo)
+    public void SetPrice(double prezzo)
     {
         this.prezzo = prezzo;
     }
