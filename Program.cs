@@ -16,7 +16,7 @@ public class Prodotto
     public string nome;
     public string descrizione;
     private double prezzo;
-    private int iva;
+    public int iva;
 
     // construttore
     public Prodotto(string nome, string descrizione, float prezzo)
