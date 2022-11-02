@@ -57,9 +57,12 @@ public class Prodotto
 
     public string GetPadLeftCodice()
     {
-        //char pad = '0';
+        //funzione PadLeft di c#
 
-        //return codice.ToString().PadLeft(8, pad);
+        /*        
+         * char pad = '0';
+         * return codice.ToString().PadLeft(8, pad);
+        */
 
         //funzione alternativa fatta a mano
 
