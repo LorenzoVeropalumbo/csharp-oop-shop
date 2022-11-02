@@ -1,37 +1,65 @@
-﻿Prodotto iphone = new Prodotto("a", "d", 13.33f, 22);
+﻿using System.Diagnostics;
 
-iphone.GetCodice();
+// istanzo un oggetto
+Prodotto iphone = new Prodotto("Iphone", "telefono molto costoso", 133333.33f);
+
+Console.WriteLine("Codice Iphone : " + iphone.GetCodice());
+Console.WriteLine("Prezzo Iphone : " +  iphone.GetPrice() + " $");
+Console.WriteLine("Prezzo Iphone ivato : " + iphone.GetPriceWithIva() + " $");
+Console.WriteLine("Nome prodotto integrale : " + iphone.GetFullName());
+Console.WriteLine("Codice pad left : " + iphone.GetPadLeftCodice());
 
 public class Prodotto
 {
+    // creazione delle variabili
     private int codice;
     public string nome;
     public string descrizione;
-    private float prezzo;
-    public int iva;
+    private double prezzo;
+    private int iva;
 
-    public Prodotto(string nome, string descrizione, float prezzo, int iva)
+    // construttore
+    public Prodotto(string nome, string descrizione, float prezzo)
     {
         Random rnd = new Random();
-        codice = rnd.Next(1, 100000000);
+        codice = rnd.Next(1, 10000);
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
-        this.iva = iva;
+        iva = 22;
     }
-
+    
+    // metodi
     public int GetCodice()
     {
         return this.codice;
     }
 
-    public float GetPrice()
+    public double GetPrice()
     {
         return this.prezzo;
     }
 
-    public float GetPriceWithIva()
+    public void SetPrice(float prezzo)
+    {
+        this.prezzo = prezzo;
+    }
+
+    public double GetPriceWithIva()
     {
         return (this.prezzo * this.iva) / 100;
     }
+
+    public string GetFullName()
+    {
+        return this.nome + this.codice;
+    }
+
+    public string GetPadLeftCodice()
+    {
+        char pad = '0';
+         
+        return codice.ToString().PadLeft(8, pad);
+    }
+
 }
