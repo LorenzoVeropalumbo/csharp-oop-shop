@@ -3,8 +3,8 @@
 // istanzo un oggetto
 Prodotto iphone = new Prodotto("Iphone", "telefono molto costoso", 133333.33f);
 
-Console.WriteLine("Codice Iphone : " + iphone.GetCodice());
-Console.WriteLine("Prezzo Iphone : " +  iphone.GetPrice() + " $");
+Console.WriteLine("Codice Iphone : " + iphone.Codice);
+Console.WriteLine("Prezzo Iphone : " +  iphone.Prezzo + " $");
 Console.WriteLine("Prezzo Iphone ivato : " + iphone.GetPriceWithIva() + " $");
 Console.WriteLine("Nome prodotto integrale : " + iphone.GetFullName());
 Console.WriteLine("Codice pad left : " + iphone.GetPadLeftCodice());
@@ -12,47 +12,33 @@ Console.WriteLine("Codice pad left : " + iphone.GetPadLeftCodice());
 public class Prodotto
 {
     // creazione delle variabili
-    private int codice;
-    public string nome;
-    public string descrizione;
-    private double prezzo;
-    public int iva;
+    public int Codice { get; private set; }
+    public string Nome { get; private set; }
+    public string Descrizione { get; private set; }
+    public double Prezzo { get; set; }
+    public int Iva { get; private set; }
 
     // construttore
     public Prodotto(string nome, string descrizione, float prezzo)
     {
         Random rnd = new Random();
-        codice = rnd.Next(1, 10000);
-        this.nome = nome;
-        this.descrizione = descrizione;
-        this.prezzo = prezzo;
-        iva = 22;
+        Codice = rnd.Next(1, 10000);
+        this.Nome = nome;
+        this.Descrizione = descrizione;
+        this.Prezzo = prezzo;
+        Iva = 22;
     }
     
     // metodi
-    public int GetCodice()
-    {
-        return this.codice;
-    }
-
-    public double GetPrice()
-    {
-        return this.prezzo;
-    }
-
-    public void SetPrice(double prezzo)
-    {
-        this.prezzo = prezzo;
-    }
 
     public double GetPriceWithIva()
     {
-        return (this.prezzo * this.iva) / 100;
+        return (this.Prezzo * this.Iva) / 100;
     }
 
     public string GetFullName()
     {
-        return this.nome + this.codice;
+        return this.Nome + this.Codice;
     }
 
     public string GetPadLeftCodice()
@@ -66,7 +52,7 @@ public class Prodotto
 
         //funzione alternativa fatta a mano
 
-        string codicePadLeft = codice.ToString();
+        string codicePadLeft = Codice.ToString();
 
         for (int i = 0; codicePadLeft.Length < 8; i++)
         {
