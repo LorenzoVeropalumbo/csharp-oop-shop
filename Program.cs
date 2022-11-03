@@ -13,10 +13,10 @@ public class Prodotto
 {
     // creazione delle variabili
     public int Codice { get; private set; }
-    public string Nome { get; private set; }
-    public string Descrizione { get; private set; }
+    public string Nome { get; set; }
+    public string Descrizione { get; set; }
     public double Prezzo { get; private set; }
-    public int Iva { get; private set; }
+    public int Iva { get; set; }
 
     // construttore
     public Prodotto(string nome, string descrizione, float prezzo)
