@@ -15,7 +15,7 @@ public class Prodotto
     public int Codice { get; private set; }
     public string Nome { get; private set; }
     public string Descrizione { get; private set; }
-    public double Prezzo { get; set; }
+    public double Prezzo { get; private set; }
     public int Iva { get; private set; }
 
     // construttore
